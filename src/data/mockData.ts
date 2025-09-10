@@ -1,0 +1,267 @@
+import { User, Professional, Opportunity } from '../types';
+
+// Mock Users
+export const mockUsers: User[] = [
+  {
+    id: '1',
+    email: 'profissional_demo@example.com',
+    password: 'demo123',
+    type: 'professional',
+    createdAt: '2024-01-15'
+  },
+  {
+    id: '2', 
+    email: 'empresa_demo@example.com',
+    password: 'demo123',
+    type: 'company',
+    createdAt: '2024-01-15'
+  }
+];
+
+// Mock Professionals
+export const mockProfessionals: Professional[] = [
+  {
+    id: '1',
+    userId: '1',
+    name: 'Ana Carolina Silva',
+    headline: 'Especialista Bubble & Automation Expert',
+    bio: 'Desenvolvedora no-code com 4 anos de experiência criando aplicações web complexas usando Bubble. Especialista em integrações com APIs e automações com Make/Integromat.',
+    skills: ['Bubble', 'Make', 'Zapier', 'API Integration', 'Database Design'],
+    level: 'Pleno',
+    location: 'São Paulo, SP',
+    availability: 'Procurando Oportunidades',
+    portfolio: 'https://anacarolina.dev',
+    linkedin: 'https://linkedin.com/in/anacarolina',
+    email: 'ana@example.com',
+    phone: '+55 11 99999-1111'
+  },
+  {
+    id: '2',
+    userId: '3',
+    name: 'Bruno Henrique Costa',
+    headline: 'FlutterFlow Mobile Developer',
+    bio: 'Especialista em desenvolvimento de aplicativos móveis usando FlutterFlow. Experiência em integração com Firebase e publicação nas lojas.',
+    skills: ['FlutterFlow', 'Firebase', 'Figma', 'Mobile Design', 'App Store'],
+    level: 'Sênior',
+    location: 'Rio de Janeiro, RJ',
+    availability: 'Disponível',
+    portfolio: 'https://brunoapps.com',
+    linkedin: 'https://linkedin.com/in/brunohcosta',
+    email: 'bruno@example.com',
+    phone: '+55 21 99999-2222'
+  },
+  {
+    id: '3',
+    userId: '4',
+    name: 'Carla Mendes',
+    headline: 'Automation Specialist | Make & Activepieces',
+    bio: 'Consultora em automação de processos empresariais. Crio fluxos complexos de trabalho usando Make, Activepieces e outras ferramentas no-code.',
+    skills: ['Make', 'Activepieces', 'N8N', 'Process Automation', 'Business Logic'],
+    level: 'Pleno',
+    location: 'Belo Horizonte, MG',
+    availability: 'Ocupado',
+    website: 'https://carlamendes.com.br',
+    linkedin: 'https://linkedin.com/in/carlamendes',
+    email: 'carla@example.com'
+  },
+  {
+    id: '4',
+    userId: '5',  
+    name: 'Diego Santos',
+    headline: 'Webflow Designer & Developer',
+    bio: 'Designer e desenvolvedor Webflow com foco em landing pages de alta conversão e sites institucionais responsivos.',
+    skills: ['Webflow', 'Web Design', 'CSS', 'JavaScript', 'SEO'],
+    level: 'Pleno',
+    location: 'Florianópolis, SC',
+    availability: 'Disponível',
+    portfolio: 'https://diegowebflow.com',
+    email: 'diego@example.com',
+    phone: '+55 48 99999-3333'
+  },
+  {
+    id: '5',
+    userId: '6',
+    name: 'Eduarda Lima',
+    headline: 'Airtable & Database Specialist',
+    bio: 'Especialista em organização de dados e criação de dashboards usando Airtable, Notion e outras ferramentas de produtividade.',
+    skills: ['Airtable', 'Notion', 'Google Sheets', 'Data Analysis', 'Dashboard'],
+    level: 'Júnior',
+    location: 'Fortaleza, CE',
+    availability: 'Procurando Oportunidades',
+    linkedin: 'https://linkedin.com/in/eduardalima',
+    email: 'eduarda@example.com'
+  },
+  {
+    id: '6',
+    userId: '7',
+    name: 'Felipe Rodrigues',
+    headline: 'No-Code Consultant & Trainer',
+    bio: 'Consultor especializado em transformação digital usando ferramentas no-code. Mais de 50 projetos entregues e 200+ profissionais treinados.',
+    skills: ['Bubble', 'FlutterFlow', 'Make', 'Consulting', 'Training'],
+    level: 'Sênior',
+    location: 'Brasília, DF',
+    availability: 'Disponível',
+    website: 'https://felipenocode.com.br',
+    linkedin: 'https://linkedin.com/in/felipenocode',
+    email: 'felipe@example.com',
+    phone: '+55 61 99999-4444'
+  },
+  {
+    id: '7',
+    userId: '8',
+    name: 'Gabriela Souza',
+    headline: 'AppSheet & Power Platform Developer',
+    bio: 'Desenvolvedora de aplicações empresariais usando Google AppSheet e Microsoft Power Platform. Foco em soluções para pequenas e médias empresas.',
+    skills: ['AppSheet', 'Power Apps', 'Power Automate', 'Google Sheets', 'Business Apps'],
+    level: 'Pleno',
+    location: 'Curitiba, PR',
+    availability: 'Ocupado',
+    email: 'gabriela@example.com'
+  },
+  {
+    id: '8',
+    userId: '9',
+    name: 'Hugo Almeida',
+    headline: 'E-commerce No-Code Specialist',
+    bio: 'Especialista em criação de lojas virtuais usando Shopify, WooCommerce e outras plataformas no-code. Mais de 100 e-commerces criados.',
+    skills: ['Shopify', 'WooCommerce', 'Gumroad', 'E-commerce', 'Digital Marketing'],
+    level: 'Sênior',
+    location: 'Salvador, BA',
+    availability: 'Disponível',
+    portfolio: 'https://hugoecommerce.com',
+    linkedin: 'https://linkedin.com/in/hugoecommerce',
+    email: 'hugo@example.com',
+    phone: '+55 71 99999-5555'
+  }
+];
+
+// Mock Opportunities  
+export const mockOpportunities: Opportunity[] = [
+  {
+    id: '1',
+    userId: '2',
+    companyName: 'TechStart Soluções',
+    title: 'Desenvolvedor Bubble Pleno',
+    contractType: 'PJ',
+    level: 'Pleno',
+    workType: 'Remoto',
+    budgetRange: 'R$ 4.000 - R$ 6.000',
+    description: 'Procuramos desenvolvedor Bubble experiente para criar sistema de gestão empresarial. Projeto de 3 meses com possibilidade de extensão.',
+    requiredSkills: ['Bubble', 'API Integration', 'Database Design', 'Workflow'],
+    location: 'São Paulo, SP',
+    contactEmail: 'contato@techstart.com.br',
+    contactPhone: '+55 11 3333-1111',
+    companyWebsite: 'https://techstart.com.br',
+    createdAt: '2024-01-20'
+  },
+  {
+    id: '2',
+    userId: '10',
+    companyName: 'Inovação Digital LTDA',
+    title: 'Especialista em Automação - Make/Zapier',
+    contractType: 'CLT',
+    level: 'Sênior',
+    workType: 'Híbrido',
+    budgetRange: 'R$ 6.000 - R$ 8.000',
+    description: 'Vaga para automatizar processos internos da empresa usando Make, Zapier e outras ferramentas. Foco em integração entre sistemas.',
+    requiredSkills: ['Make', 'Zapier', 'API', 'Process Automation', 'Integration'],
+    location: 'Rio de Janeiro, RJ',
+    contactEmail: 'rh@inovacaodigital.com',
+    companyWebsite: 'https://inovacaodigital.com',
+    createdAt: '2024-01-18'
+  },
+  {
+    id: '3',
+    userId: '11',
+    companyName: 'StartupXYZ',
+    title: 'FlutterFlow Developer - App MVP',
+    contractType: 'Freelancer',
+    level: 'Pleno',
+    workType: 'Remoto',
+    budgetRange: 'R$ 8.000 - R$ 12.000 (projeto)',
+    description: 'Desenvolvimento de MVP de aplicativo usando FlutterFlow. Integração com Firebase e publicação nas lojas. Prazo de 6 semanas.',
+    requiredSkills: ['FlutterFlow', 'Firebase', 'Mobile Development', 'App Store', 'Google Play'],
+    location: 'Remoto',
+    contactEmail: 'dev@startupxyz.com',
+    createdAt: '2024-01-22'
+  },
+  {
+    id: '4',
+    userId: '12',
+    companyName: 'AgênciaWeb Pro',
+    title: 'Webflow Designer - Landing Pages',
+    contractType: 'PJ',
+    level: 'Júnior',
+    workType: 'Remoto',
+    budgetRange: 'R$ 2.500 - R$ 4.000',
+    description: 'Criação de landing pages de alta conversão para clientes da agência. Foco em design responsivo e otimização para SEO.',
+    requiredSkills: ['Webflow', 'Web Design', 'Responsive Design', 'SEO', 'CRO'],
+    location: 'Belo Horizonte, MG',
+    contactEmail: 'projetos@agenciawebpro.com.br',
+    contactPhone: '+55 31 3333-2222',
+    companyWebsite: 'https://agenciawebpro.com.br',
+    createdAt: '2024-01-19'
+  },
+  {
+    id: '5',
+    userId: '13',
+    companyName: 'Consultoria Empresarial ABC',
+    title: 'Airtable Specialist - Dashboard Corporativo',
+    contractType: 'Freelancer',
+    level: 'Pleno',
+    workType: 'Presencial',
+    budgetRange: 'R$ 5.000 - R$ 7.000 (projeto)',
+    description: 'Estruturação de base de dados corporativa em Airtable com dashboards para acompanhamento de KPIs. Projeto de 4 semanas.',
+    requiredSkills: ['Airtable', 'Dashboard', 'Data Analysis', 'KPI', 'Business Intelligence'],
+    location: 'São Paulo, SP',
+    contactEmail: 'contato@consultoriaabc.com',
+    createdAt: '2024-01-21'
+  },
+  {
+    id: '6',
+    userId: '14',
+    companyName: 'E-commerce Solutions',
+    title: 'Shopify Developer - Loja Completa',
+    contractType: 'PJ',
+    level: 'Sênior',
+    workType: 'Remoto',
+    budgetRange: 'R$ 7.000 - R$ 10.000',
+    description: 'Desenvolvimento completo de loja Shopify com customizações avançadas. Integração com ERP e sistemas de pagamento brasileiros.',
+    requiredSkills: ['Shopify', 'Liquid', 'E-commerce', 'Payment Gateway', 'ERP Integration'],
+    location: 'Curitiba, PR',
+    contactEmail: 'dev@ecommercesolutions.com.br',
+    contactPhone: '+55 41 3333-3333',
+    createdAt: '2024-01-17'
+  },
+  {
+    id: '7',
+    userId: '15',
+    companyName: 'FinTech Brasileira',
+    title: 'Power Platform Developer',
+    contractType: 'CLT',
+    level: 'Pleno',
+    workType: 'Híbrido',
+    budgetRange: 'R$ 5.500 - R$ 7.500',
+    description: 'Desenvolvimento de aplicações internas usando Microsoft Power Platform. Foco em automação de processos financeiros.',
+    requiredSkills: ['Power Apps', 'Power Automate', 'SharePoint', 'Office 365', 'Business Process'],
+    location: 'Brasília, DF',
+    contactEmail: 'rh@fintechbr.com',
+    companyWebsite: 'https://fintechbrasileira.com',
+    createdAt: '2024-01-16'
+  },
+  {
+    id: '8',
+    userId: '16',
+    companyName: 'Agência Criativa 360',
+    title: 'No-Code Consultant - Projetos Diversos',
+    contractType: 'Freelancer',
+    level: 'Sênior',
+    workType: 'Remoto',
+    budgetRange: 'R$ 150 - R$ 250/hora',
+    description: 'Consultoria em ferramentas no-code para diversos projetos de clientes. Flexibilidade de horários e projetos variados.',
+    requiredSkills: ['Bubble', 'Webflow', 'Make', 'Consulting', 'Project Management'],
+    location: 'Salvador, BA',
+    contactEmail: 'projetos@criativa360.com',
+    createdAt: '2024-01-23'
+  }
+];
